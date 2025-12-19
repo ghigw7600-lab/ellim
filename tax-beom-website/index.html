@@ -1884,11 +1884,12 @@
       <div class="footer__top">
         <div class="footer__brand">
           <div class="footer__logo">
-            <img src="assets/logo/beom-logo2.png" alt="세무회계 범" class="footer__logo-img">
+            <img src="assets/logo/beom-logo1.png" alt="세무회계 범" class="footer__logo-img">
           </div>
           <p class="footer__desc">
-            TAX BEOM - 믿을 수 있는 세무 파트너<br>
-            대표세무사가 직접 상담하고 관리합니다.
+            세무회계 범 | 세무 기장 및 세금 신고<br>
+            대표자: 유혜민<br>
+            사업자등록번호: 369-69-00698
           </p>
         </div>
         <div class="footer__contact">
@@ -2157,4 +2158,15 @@
 
     // Nav Background on Scroll
     window.addEventListener('scroll', () => {
-    
+          const nav = document.getElementById('nav');
+      if (window.scrollY > 100) {
+        nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+      } else {
+        nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        nav.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
