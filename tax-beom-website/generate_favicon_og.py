@@ -132,7 +132,7 @@ def create_og_image():
     draw.text((x, services_y), services, fill=BRAND_GREEN, font=font_desc)
 
     # URL
-    url_text = "tax-beom.netlify.app"
+    url_text = "taxbeom.com"
     bbox = draw.textbbox((0, 0), url_text, font=font_url)
     url_width = bbox[2] - bbox[0]
     x = (width - url_width) // 2
