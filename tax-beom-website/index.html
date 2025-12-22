@@ -2046,6 +2046,7 @@
               <option value="bookkeeping">세무기장</option>
               <option value="tax">법인세/종소세 신고</option>
               <option value="consulting">절세 컨설팅</option>
+              <option value="filing">신고대행</option>
               <option value="refund">경정청구</option>
               <option value="property">양도/상속/증여</option>
               <option value="other">기타</option>
@@ -2067,7 +2068,7 @@
         </div>
         <div class="form__group">
           <label class="form__label">연락처 <span>*</span></label>
-          <input type="tel" class="form__input" name="phone" placeholder="010-0000-0000" required>
+          <input type="tel" class="form__input" name="phone" placeholder="숫자만입력" required>
         </div>
         <div class="form__group">
           <label class="form__label">이메일</label>
@@ -2078,19 +2079,25 @@
           <textarea class="form__textarea" name="content" placeholder="궁금한 점이나 상담받고 싶은 내용을 적어주세요."></textarea>
         </div>
         <div class="form__checkbox">
-          <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+          <input type="checkbox" id="agreeAll" name="agreeAll" onchange="toggleAllCheckboxes(this)">
+          <label for="agreeAll">
+            <strong>전체동의</strong>
+          </label>
+        </div>
+        <div class="form__checkbox">
+          <input type="checkbox" id="agreeTerms" name="agreeTerms" class="individual-checkbox" required>
           <label for="agreeTerms">
             <button type="button" onclick="openTerms('service')">[필수] 서비스 이용약관</button>에 동의합니다.
           </label>
         </div>
         <div class="form__checkbox">
-          <input type="checkbox" id="agreePrivacy" name="agreePrivacy" required>
+          <input type="checkbox" id="agreePrivacy" name="agreePrivacy" class="individual-checkbox" required>
           <label for="agreePrivacy">
             <button type="button" onclick="openTerms('privacy')">[필수] 개인정보 수집 및 이용</button>에 동의합니다.
           </label>
         </div>
         <div class="form__checkbox">
-          <input type="checkbox" id="agreeMarketing" name="agreeMarketing">
+          <input type="checkbox" id="agreeMarketing" name="agreeMarketing" class="individual-checkbox">
           <label for="agreeMarketing">
             <button type="button" onclick="openTerms('marketing')">[선택] 마케팅 정보 수신</button>에 동의합니다.
           </label>
@@ -2228,6 +2235,14 @@
       }
     }
 
+    // 전체동의 체크박스 토글 함수
+    function toggleAllCheckboxes(checkbox) {
+      const individualCheckboxes = document.querySelectorAll('.individual-checkbox');
+      individualCheckboxes.forEach(cb => {
+        cb.checked = checkbox.checked;
+      });
+    }
+
     // Form Submit
     // 성공 로그 저장
     function saveSuccessLog(data) {
@@ -2289,7 +2304,7 @@
         // 성공 로그 저장
         saveSuccessLog(data);
 
-        alert('상담 신청이 완료되었습니다.\n빠른 시일 내에 연락드리겠습니다.');
+        alert('상담 신청이 완료되었습니다.\n담당직원이 순차적으로 연락드리겠습니다.\n감사합니다.');
         form.reset();
         closeModal();
       })
