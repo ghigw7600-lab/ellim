@@ -160,7 +160,7 @@
             background: var(--text-dark);
         }
 
-        /* ========== HERO 섹션 - 10% 축소 ========== */
+        /* ========== HERO 섹션 - 5% 축소 ========== */
         .hero {
             margin-top: 72px;
             padding: 100px 0 72px;
@@ -169,10 +169,10 @@
         }
 
         .hero h1 {
-            font-size: 38px;
+            font-size: 40px;
             font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 22px;
+            margin-bottom: 24px;
             line-height: 1.3;
         }
 
@@ -185,77 +185,90 @@
         }
 
         .hero-subtitle {
-            font-size: 16px;
+            font-size: 17px;
             color: var(--text-gray);
-            margin-bottom: 36px;
+            margin-bottom: 38px;
         }
 
-        /* ========== 팀 사진 섹션 - 송림 동일 ========== */
-        .team-photo-section {
+        /* ========== 배너 슬라이더 섹션 ========== */
+        .banner-slider-section {
             padding: 0;
             background: var(--bg-white);
         }
 
-        .team-photo-wrapper {
-            width: 100%;
-            max-height: 600px;
-            overflow: hidden;
+        .banner-slider-wrapper {
             position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
         }
 
-        .team-photo-wrapper img {
+        .banner-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .banner-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+
+        .banner-slide img {
             width: 100%;
             height: auto;
-            object-fit: cover;
+            display: block;
         }
 
-        /* 팀 사진 플레이스홀더 - 10% 축소 */
-        .team-photo-placeholder {
-            width: 100%;
-            height: 450px;
-            background: linear-gradient(135deg, #f0f4f8 0%, #e8ecf0 100%);
+        .banner-dots {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            color: var(--text-gray);
+            gap: 10px;
+            padding: 20px 0;
         }
 
-        .team-photo-placeholder .icon {
-            font-size: 72px;
-            margin-bottom: 18px;
-            opacity: 0.5;
+        .banner-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .team-photo-placeholder p {
-            font-size: 16px;
-            margin-bottom: 8px;
+        .banner-dots .dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
         }
 
-        .team-photo-placeholder span {
-            font-size: 13px;
-            color: var(--text-light);
+        .banner-dots .dot:hover {
+            background: var(--primary-dark);
         }
 
-        /* ========== 통계 섹션 - 10% 축소 ========== */
+        .banner-cta {
+            text-align: center;
+            padding: 30px 0 50px;
+        }
+
+        /* ========== 통계 섹션 - 5% 축소 ========== */
         .stats-section {
-            padding: 90px 0;
+            padding: 95px 0;
             background: var(--bg-white);
             text-align: center;
         }
 
         .stats-header {
-            margin-bottom: 54px;
+            margin-bottom: 57px;
         }
 
         .stats-header p {
-            font-size: 16px;
+            font-size: 17px;
             color: var(--text-gray);
             margin-bottom: 8px;
         }
 
         .stats-header h2 {
-            font-size: 36px;
+            font-size: 38px;
             font-weight: 700;
             color: var(--primary);
         }
@@ -295,10 +308,10 @@
         }
 
         .stat-title {
-            font-size: 16px;
+            font-size: 17px;
             color: var(--primary);
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .stat-value {
@@ -317,18 +330,18 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 63px;
+            width: 48px;
+            height: 66px;
             background: var(--bg-light);
             border: 1px solid var(--border);
             border-radius: 8px;
-            font-size: 38px;
+            font-size: 40px;
             font-weight: 700;
             color: var(--text-dark);
         }
 
         .stat-value .unit {
-            font-size: 16px;
+            font-size: 17px;
             color: var(--text-gray);
             margin-left: 8px;
         }
@@ -355,32 +368,32 @@
             transform: translateY(-2px);
         }
 
-        /* ========== 서비스 소개 섹션 - 10% 축소 ========== */
+        /* ========== 서비스 소개 섹션 - 5% 축소 ========== */
         .service-intro {
-            padding: 90px 0;
+            padding: 95px 0;
             background: var(--bg-white);
         }
 
         .service-intro-header {
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .service-intro-header .subtitle {
-            font-size: 15px;
+            font-size: 16px;
             color: var(--text-gray);
             margin-bottom: 8px;
         }
 
         .service-intro-header h2 {
-            font-size: 36px;
+            font-size: 38px;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .service-intro-header p {
-            font-size: 15px;
+            font-size: 16px;
             color: var(--text-gray);
             line-height: 1.6;
         }
@@ -414,26 +427,26 @@
         }
 
         .service-card-header h3 {
-            font-size: 20px;
+            font-size: 21px;
             font-weight: 700;
         }
 
         .service-card-body {
-            padding: 27px 27px 36px;
+            padding: 28px 28px 38px;
             background: #fff;
         }
 
         .service-card-body ul {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 16px;
         }
 
         .service-card-body li {
             display: flex;
             align-items: center;
-            gap: 11px;
-            font-size: 14px;
+            gap: 12px;
+            font-size: 15px;
             color: var(--text-dark);
         }
 
@@ -463,16 +476,16 @@
             color: var(--primary);
         }
 
-        /* ========== 대표님 집중 섹션 - 드래그 슬라이더 + 10% 축소 ========== */
+        /* ========== 대표님 집중 섹션 - 드래그 슬라이더 + 5% 축소 ========== */
         .focus-section {
-            padding: 90px 0;
+            padding: 95px 0;
             background: var(--primary);
             text-align: center;
             color: #fff;
         }
 
         .focus-section h2 {
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 400;
             margin-bottom: 8px;
             line-height: 1.4;
@@ -484,9 +497,9 @@
         }
 
         .focus-section .subtitle {
-            font-size: 16px;
+            font-size: 17px;
             opacity: 0.9;
-            margin-bottom: 54px;
+            margin-bottom: 57px;
         }
 
         /* 고민 카드 슬라이더 - 드래그 방식 */
@@ -549,10 +562,10 @@
         }
 
         .concern-card p {
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text-gray);
             line-height: 1.6;
-            margin-bottom: 11px;
+            margin-bottom: 12px;
         }
 
         .concern-card .highlight {
@@ -583,22 +596,22 @@
             color: var(--primary);
         }
 
-        /* ========== 업종 태그 섹션 - 10% 축소 ========== */
+        /* ========== 업종 태그 섹션 - 5% 축소 ========== */
         .industry-section {
-            padding: 90px 0;
+            padding: 95px 0;
             background: var(--bg-light);
         }
 
         .industry-header {
             text-align: center;
-            margin-bottom: 54px;
+            margin-bottom: 57px;
         }
 
         .industry-header h2 {
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .industry-header h2 span {
@@ -606,7 +619,7 @@
         }
 
         .industry-header p {
-            font-size: 15px;
+            font-size: 16px;
             color: var(--text-gray);
             line-height: 1.6;
         }
@@ -623,11 +636,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 18px 15px;
+            padding: 19px 16px;
             background: #fff;
             border: 2px solid var(--primary);
             border-radius: 11px;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 500;
             color: var(--primary);
             transition: all 0.3s;
@@ -639,15 +652,15 @@
             color: #fff;
         }
 
-        /* ========== 절세 사례 섹션 - 10% 축소 ========== */
+        /* ========== 절세 사례 섹션 - 5% 축소 ========== */
         .case-section {
-            padding: 90px 0;
+            padding: 95px 0;
             background: var(--bg-white);
         }
 
         .case-header {
             text-align: center;
-            margin-bottom: 54px;
+            margin-bottom: 57px;
         }
 
         .case-header .highlight-yellow {
@@ -657,13 +670,13 @@
         }
 
         .case-header h2 {
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .case-header p {
-            font-size: 15px;
+            font-size: 16px;
             color: var(--text-gray);
         }
 
@@ -698,7 +711,7 @@
         }
 
         .case-card-title h4 {
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 700;
         }
 
@@ -723,13 +736,13 @@
         }
 
         .case-card-result .value {
-            font-size: 43px;
+            font-size: 45px;
             font-weight: 700;
             color: var(--text-dark);
         }
 
         .case-card-result .value span {
-            font-size: 22px;
+            font-size: 23px;
         }
 
         .case-card-details {
@@ -776,10 +789,10 @@
         }
 
         .case-card-points h5 {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .case-card-points ol {
@@ -788,8 +801,8 @@
         }
 
         .case-card-points li {
-            margin-bottom: 11px;
-            font-size: 13px;
+            margin-bottom: 12px;
+            font-size: 14px;
             line-height: 1.5;
         }
 
@@ -839,21 +852,21 @@
             margin-top: 54px;
         }
 
-        /* ========== 상담예약 섹션 - 10% 축소 ========== */
+        /* ========== 상담예약 섹션 - 5% 축소 ========== */
         .contact-section {
-            padding: 90px 0;
+            padding: 95px 0;
             background: var(--bg-light);
         }
 
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 54px;
+            gap: 57px;
             align-items: start;
         }
 
         .contact-info h2 {
-            font-size: 29px;
+            font-size: 31px;
             font-weight: 700;
             margin-bottom: 8px;
             line-height: 1.4;
@@ -864,29 +877,29 @@
         }
 
         .contact-info .subtitle {
-            font-size: 15px;
+            font-size: 16px;
             color: var(--text-gray);
-            margin-bottom: 27px;
+            margin-bottom: 28px;
         }
 
         .contact-stats {
-            margin-bottom: 27px;
+            margin-bottom: 28px;
         }
 
         .contact-stats .label {
-            font-size: 13px;
+            font-size: 14px;
             color: var(--text-gray);
             margin-bottom: 8px;
         }
 
         .contact-stats .count {
-            font-size: 43px;
+            font-size: 45px;
             font-weight: 700;
             color: var(--text-dark);
         }
 
         .contact-stats .count span {
-            font-size: 22px;
+            font-size: 23px;
         }
 
         /* 실시간 문의 목록 */
@@ -916,7 +929,7 @@
 
         .inquiry-item .text {
             flex: 1;
-            font-size: 13px;
+            font-size: 14px;
             color: var(--text-dark);
         }
 
@@ -1066,31 +1079,31 @@
             background: var(--primary-dark);
         }
 
-        /* ========== FOOTER - 10% 축소 ========== */
+        /* ========== FOOTER - 5% 축소 ========== */
         .footer {
             background: var(--bg-dark);
             color: #999;
-            padding: 54px 0 36px;
+            padding: 57px 0 38px;
         }
 
         .footer-inner {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 36px;
+            padding: 0 38px;
         }
 
         .footer-top {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding-bottom: 36px;
+            padding-bottom: 38px;
             border-bottom: 1px solid #333;
         }
 
         .footer-left {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 16px;
         }
 
         .footer-logo {
@@ -1099,23 +1112,23 @@
         }
 
         .footer-logo-img {
-            height: 30px;
+            height: 32px;
             width: auto;
             filter: brightness(0) invert(1);
         }
 
         .footer-company {
-            font-size: 12px;
+            font-size: 13px;
             line-height: 1.8;
         }
 
         .footer-nav {
             display: flex;
-            gap: 29px;
+            gap: 30px;
         }
 
         .footer-nav a {
-            font-size: 13px;
+            font-size: 14px;
             color: #999;
             transition: color 0.2s;
         }
@@ -1125,14 +1138,14 @@
         }
 
         .footer-bottom {
-            padding-top: 27px;
+            padding-top: 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .footer-copyright {
-            font-size: 11px;
+            font-size: 12px;
             color: #666;
         }
 
@@ -1142,8 +1155,8 @@
         }
 
         .footer-social a {
-            width: 29px;
-            height: 29px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1338,20 +1351,32 @@
     <!-- ========== HERO 섹션 - 송림 동일 ========== -->
     <section class="hero">
         <div class="container">
-            <h1>잘하는 세무사 찾고 계셨나요?<br><span class="highlight">조금만 비교해보셔도 알 수 있습니다.</span></h1>
+            <h1><span class="highlight">엘림세무회계컨설팅</span>은<br>다릅니다.</h1>
         </div>
     </section>
 
-    <!-- ========== 팀 사진 섹션 - 송림 동일 ========== -->
-    <section class="team-photo-section">
-        <div class="team-photo-wrapper">
-            <!-- 팀 사진 플레이스홀더 - 실제 사진으로 교체 예정 -->
-            <div class="team-photo-placeholder">
-                <div class="icon">👥</div>
-                <p>팀 사진 이미지</p>
-                <span>assets/images/team-photo.jpg 로 교체 예정</span>
+    <!-- ========== 배너 슬라이더 섹션 (팀 사진 대체) ========== -->
+    <section class="banner-slider-section">
+        <div class="banner-slider-wrapper">
+            <div class="banner-slider" id="bannerSlider">
+                <div class="banner-slide">
+                    <img src="assets/images/banner-1.png" alt="세무기장 55,000원">
+                </div>
+                <div class="banner-slide">
+                    <img src="assets/images/banner-2.png" alt="세무기장 55,000원 이 모든 걸 한번에">
+                </div>
+                <div class="banner-slide">
+                    <img src="assets/images/banner-3.png" alt="0원 무료 상담 받아보세요">
+                </div>
             </div>
-            <!-- 실제 이미지: <img src="assets/images/team-photo.jpg" alt="엘림세무회계컨설팅 팀"> -->
+            <div class="banner-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
+        </div>
+        <div class="banner-cta">
+            <a href="#contact" class="btn-primary">상담 예약하기 &gt;</a>
         </div>
     </section>
 
@@ -1409,10 +1434,6 @@
                         <span class="unit">%</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="stats-cta">
-                <a href="#contact" class="btn-primary">상담 예약하기 &gt;</a>
             </div>
         </div>
     </section>
@@ -2043,6 +2064,51 @@
             const walk = (x - startX) * 2;
             slider.scrollLeft = scrollLeft - walk;
         });
+
+        // 배너 슬라이더
+        const bannerSlider = document.getElementById('bannerSlider');
+        const bannerDots = document.querySelectorAll('.banner-dots .dot');
+        let currentBanner = 0;
+        const totalBanners = 3;
+        let bannerInterval;
+
+        function goToBanner(index) {
+            currentBanner = index;
+            bannerSlider.style.transform = `translateX(-${index * 100}%)`;
+            bannerDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextBanner() {
+            currentBanner = (currentBanner + 1) % totalBanners;
+            goToBanner(currentBanner);
+        }
+
+        // 자동 슬라이드 (4초)
+        function startBannerInterval() {
+            bannerInterval = setInterval(nextBanner, 4000);
+        }
+
+        function stopBannerInterval() {
+            clearInterval(bannerInterval);
+        }
+
+        // 닷 클릭 이벤트
+        bannerDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                stopBannerInterval();
+                goToBanner(index);
+                startBannerInterval();
+            });
+        });
+
+        // 마우스 호버 시 자동 슬라이드 정지
+        if (bannerSlider) {
+            bannerSlider.parentElement.addEventListener('mouseenter', stopBannerInterval);
+            bannerSlider.parentElement.addEventListener('mouseleave', startBannerInterval);
+            startBannerInterval();
+        }
     </script>
 </body>
 </html>
