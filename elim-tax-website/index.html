@@ -192,14 +192,17 @@
 
         /* ========== 배너 슬라이더 섹션 ========== */
         .banner-slider-section {
-            padding: 0;
+            padding: 20px 0 0;
             background: var(--bg-white);
         }
 
         .banner-slider-wrapper {
             position: relative;
-            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
             overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
         .banner-slider {
@@ -216,8 +219,6 @@
             width: 100%;
             height: auto;
             display: block;
-            max-height: 700px;
-            object-fit: cover;
         }
 
         .banner-dots {
