@@ -47,6 +47,7 @@
             --bg-light: #f5f7fa;
             --bg-dark: #222222;
             --border: #e5e5e5;
+            --yellow: #ffd700;
         }
 
         html { scroll-behavior: smooth; }
@@ -90,7 +91,7 @@
             justify-content: space-between;
         }
 
-        /* 로고 - 송림 스타일 (3줄 가로선) */
+        /* 로고 - 송림 스타일 (사각형 조합) */
         .logo {
             display: flex;
             align-items: center;
@@ -98,28 +99,39 @@
         }
 
         .logo-icon {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
+            width: 40px;
+            height: 40px;
+            position: relative;
         }
 
-        .logo-icon .line {
-            height: 3px;
+        .logo-icon .rect-main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
             background: var(--primary);
-            border-radius: 1px;
+            border-radius: 6px;
         }
 
-        .logo-icon .line-1 { width: 24px; }
-        .logo-icon .line-2 { width: 24px; }
-        .logo-icon .line-3 {
-            display: flex;
-            gap: 4px;
+        .logo-icon .rect-small {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 16px;
+            height: 16px;
+            background: #4ecdc4;
+            border-radius: 3px;
         }
-        .logo-icon .line-3 span {
-            width: 10px;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 1px;
+
+        .logo-icon .rect-medium {
+            position: absolute;
+            bottom: 4px;
+            left: 4px;
+            width: 22px;
+            height: 24px;
+            background: #5ba3e0;
+            border-radius: 3px;
         }
 
         .logo-text {
@@ -202,15 +214,222 @@
             background: var(--text-dark);
         }
 
+        /* ========== HERO 섹션 - 송림 동일 ========== */
+        .hero {
+            margin-top: 72px;
+            padding: 120px 0 80px;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .hero h1 .highlight {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 4px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+        }
+
+        /* ========== 팀 사진 섹션 - 송림 동일 ========== */
+        .team-photo-section {
+            padding: 0;
+            background: var(--bg-white);
+        }
+
+        .team-photo-wrapper {
+            width: 100%;
+            max-height: 600px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-photo-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* 팀 사진 플레이스홀더 */
+        .team-photo-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e8ecf0 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+        }
+
+        .team-photo-placeholder .icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .team-photo-placeholder p {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .team-photo-placeholder span {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* ========== 통계 섹션 - 송림 동일 ========== */
+        .stats-section {
+            padding: 100px 0;
+            background: var(--bg-white);
+            text-align: center;
+        }
+
+        .stats-header {
+            margin-bottom: 60px;
+        }
+
+        .stats-header p {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 8px;
+        }
+
+        .stats-header h2 {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 일러스트 플레이스홀더 */
+        .stat-icon .placeholder {
+            width: 80px;
+            height: 80px;
+            background: #f0f4f8;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .stat-title {
+            font-size: 18px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .stat-value {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .stat-value .number {
+            display: flex;
+            gap: 4px;
+        }
+
+        .stat-value .digit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 70px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .stat-value .unit {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-left: 8px;
+        }
+
+        .stats-cta {
+            margin-top: 60px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 40px;
+            background: var(--primary);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
         /* ========== 서비스 소개 섹션 - 송림 동일 (2컬럼 카드) ========== */
         .service-intro {
-            margin-top: 72px;
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--bg-white);
         }
 
         .service-intro-header {
             text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .service-intro-header .subtitle {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-bottom: 8px;
+        }
+
+        .service-intro-header h2 {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--primary);
             margin-bottom: 16px;
         }
 
@@ -298,27 +517,91 @@
             color: var(--primary);
         }
 
-        .service-cta {
+        /* ========== 대표님 집중 섹션 - 송림 동일 (파란 배경) ========== */
+        .focus-section {
+            padding: 100px 0;
+            background: var(--primary);
             text-align: center;
-            margin-top: 50px;
+            color: #fff;
         }
 
-        .service-cta .btn-primary {
+        .focus-section h2 {
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .focus-section h2 .yellow {
+            color: var(--yellow);
+            font-weight: 700;
+        }
+
+        .focus-section .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 60px;
+        }
+
+        /* 고민 카드 슬라이더 */
+        .concern-slider {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            overflow-x: auto;
+            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+
+        .concern-card {
+            flex-shrink: 0;
+            width: 280px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px 24px;
+            text-align: left;
+        }
+
+        .concern-card .quote {
+            font-size: 36px;
+            color: #ddd;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+
+        .concern-card p {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .concern-card .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .focus-cta {
+            margin-top: 20px;
+        }
+
+        .btn-outline {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 16px 40px;
-            background: var(--primary);
+            background: transparent;
             color: #fff;
             font-size: 16px;
             font-weight: 600;
+            border: 2px solid #fff;
             border-radius: 30px;
             transition: all 0.3s;
         }
 
-        .service-cta .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
+        .btn-outline:hover {
+            background: #fff;
+            color: var(--primary);
         }
 
         /* ========== 업종 태그 섹션 - 송림 동일 ========== */
@@ -388,15 +671,16 @@
             margin-bottom: 60px;
         }
 
+        .case-header .highlight-yellow {
+            display: inline-block;
+            background: linear-gradient(transparent 60%, var(--yellow) 60%);
+            padding: 0 8px;
+        }
+
         .case-header h2 {
             font-size: 36px;
             font-weight: 700;
             margin-bottom: 16px;
-        }
-
-        .case-header h2 .highlight {
-            background: linear-gradient(transparent 60%, #fff3cd 60%);
-            padding: 0 4px;
         }
 
         .case-header p {
@@ -431,6 +715,7 @@
             align-items: center;
             gap: 12px;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
         .case-card-title h4 {
@@ -490,7 +775,7 @@
         .case-card-image .placeholder {
             width: 120px;
             height: 150px;
-            background: #ddd;
+            background: #e0e5ea;
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -519,7 +804,8 @@
         }
 
         .case-card-points ol {
-            padding-left: 20px;
+            padding-left: 0;
+            list-style: none;
         }
 
         .case-card-points li {
@@ -569,7 +855,12 @@
             color: var(--text-dark);
         }
 
-        /* ========== 상담예약 섹션 ========== */
+        .case-cta {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        /* ========== 상담예약 섹션 - 송림 동일 ========== */
         .contact-section {
             padding: 100px 0;
             background: var(--bg-light);
@@ -585,49 +876,92 @@
         .contact-info h2 {
             font-size: 32px;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
+            line-height: 1.4;
         }
 
-        .contact-info p {
+        .contact-info h2 .blue {
+            color: var(--primary);
+        }
+
+        .contact-info .subtitle {
             font-size: 16px;
             color: var(--text-gray);
             margin-bottom: 30px;
-            line-height: 1.6;
         }
 
-        .contact-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .contact-stats {
+            margin-bottom: 30px;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .contact-text strong {
-            display: block;
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-
-        .contact-text span {
+        .contact-stats .label {
             font-size: 14px;
             color: var(--text-gray);
+            margin-bottom: 8px;
+        }
+
+        .contact-stats .count {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .contact-stats .count span {
+            font-size: 24px;
+        }
+
+        /* 실시간 문의 목록 */
+        .inquiry-list {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .inquiry-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .inquiry-item:last-child {
+            border-bottom: none;
+        }
+
+        .inquiry-item .icon {
+            width: 20px;
+            margin-right: 12px;
+            color: var(--text-light);
+        }
+
+        .inquiry-item .text {
+            flex: 1;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .inquiry-item .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #ff6b6b;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .inquiry-item .time {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-left: 12px;
+        }
+
+        .inquiry-item .name {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-left: 12px;
         }
 
         /* 상담 폼 */
@@ -638,21 +972,8 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.08);
         }
 
-        .form-title {
-            font-size: 22px;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
         .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
@@ -660,6 +981,11 @@
             font-size: 14px;
             font-weight: 500;
             margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-group label .required {
+            color: #ff6b6b;
         }
 
         .form-group input,
@@ -686,6 +1012,64 @@
             min-height: 100px;
         }
 
+        /* 라디오 그룹 */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .radio-item input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        .radio-item span {
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        /* 체크박스 그룹 */
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        /* 개인정보 동의 */
+        .privacy-box {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            max-height: 120px;
+            overflow-y: auto;
+            font-size: 13px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
         .form-submit {
             width: 100%;
             padding: 16px;
@@ -703,14 +1087,7 @@
             background: var(--primary-dark);
         }
 
-        .form-notice {
-            font-size: 12px;
-            color: var(--text-light);
-            text-align: center;
-            margin-top: 16px;
-        }
-
-        /* ========== FOOTER ========== */
+        /* ========== FOOTER - 송림 동일 ========== */
         .footer {
             background: var(--bg-dark);
             color: #999;
@@ -731,41 +1108,64 @@
             border-bottom: 1px solid #333;
         }
 
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
         .footer-logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .footer-logo-icon {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
+            width: 30px;
+            height: 30px;
+            position: relative;
         }
 
-        .footer-logo-icon .line {
-            height: 2px;
+        .footer-logo-icon .rect-main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 30px;
             background: #fff;
-            border-radius: 1px;
+            border-radius: 4px;
+            opacity: 0.9;
         }
 
-        .footer-logo-icon .line-1 { width: 20px; }
-        .footer-logo-icon .line-2 { width: 20px; }
-        .footer-logo-icon .line-3 {
-            display: flex;
-            gap: 3px;
+        .footer-logo-icon .rect-small {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            width: 12px;
+            height: 12px;
+            background: #4ecdc4;
+            border-radius: 2px;
         }
-        .footer-logo-icon .line-3 span {
-            width: 8px;
-            height: 2px;
-            background: #fff;
-            border-radius: 1px;
+
+        .footer-logo-icon .rect-medium {
+            position: absolute;
+            bottom: 3px;
+            left: 3px;
+            width: 16px;
+            height: 18px;
+            background: #5ba3e0;
+            border-radius: 2px;
         }
 
         .footer-logo-text {
             font-size: 16px;
             font-weight: 600;
             color: #fff;
+        }
+
+        .footer-company {
+            font-size: 13px;
+            line-height: 1.8;
         }
 
         .footer-nav {
@@ -785,17 +1185,35 @@
 
         .footer-bottom {
             padding-top: 30px;
-        }
-
-        .footer-info {
-            font-size: 13px;
-            line-height: 1.8;
-            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .footer-copyright {
             font-size: 12px;
             color: #666;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #333;
+            border-radius: 50%;
+            color: #fff;
+            transition: background 0.2s;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
         }
 
         /* ========== MOBILE NAV ========== */
@@ -839,6 +1257,11 @@
                 padding: 0 24px;
             }
 
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
             .service-cards {
                 flex-direction: column;
                 align-items: center;
@@ -861,6 +1284,11 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+
+            .concern-slider {
+                justify-content: flex-start;
+                padding-left: 20px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -876,8 +1304,18 @@
                 display: block;
             }
 
-            .service-intro {
-                padding: 60px 0;
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-value .digit {
+                width: 40px;
+                height: 56px;
+                font-size: 32px;
             }
 
             .industry-tags {
@@ -897,10 +1335,6 @@
                 gap: 20px;
             }
 
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
             .footer-top {
                 flex-direction: column;
                 gap: 24px;
@@ -909,6 +1343,11 @@
             .footer-nav {
                 flex-wrap: wrap;
                 gap: 16px 24px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
             }
         }
     </style>
@@ -919,12 +1358,9 @@
         <div class="header-inner">
             <a href="/" class="logo">
                 <div class="logo-icon">
-                    <div class="line line-1"></div>
-                    <div class="line line-2"></div>
-                    <div class="line-3">
-                        <span></span>
-                        <span></span>
-                    </div>
+                    <div class="rect-main"></div>
+                    <div class="rect-small"></div>
+                    <div class="rect-medium"></div>
                 </div>
                 <div class="logo-text">
                     <span class="ko">엘림세무회계컨설팅</span>
@@ -965,11 +1401,95 @@
         <a href="#contact" class="btn-consult">상담예약하기</a>
     </nav>
 
+    <!-- ========== HERO 섹션 - 송림 동일 ========== -->
+    <section class="hero">
+        <div class="container">
+            <h1>잘하는 세무사 찾고 계셨나요?<br><span class="highlight">조금만 비교해보셔도 알 수 있습니다.</span></h1>
+        </div>
+    </section>
+
+    <!-- ========== 팀 사진 섹션 - 송림 동일 ========== -->
+    <section class="team-photo-section">
+        <div class="team-photo-wrapper">
+            <!-- 팀 사진 플레이스홀더 - 실제 사진으로 교체 예정 -->
+            <div class="team-photo-placeholder">
+                <div class="icon">👥</div>
+                <p>팀 사진 이미지</p>
+                <span>assets/images/team-photo.jpg 로 교체 예정</span>
+            </div>
+            <!-- 실제 이미지: <img src="assets/images/team-photo.jpg" alt="엘림세무회계컨설팅 팀"> -->
+        </div>
+    </section>
+
+    <!-- ========== 통계 섹션 - 송림 동일 ========== -->
+    <section class="stats-section" id="services">
+        <div class="container">
+            <div class="stats-header">
+                <p>새는 돈은 줄여드리고<br>들어오는 돈은 늘려드리는</p>
+                <h2>밀착형 돌봄 서비스</h2>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <!-- 일러스트 플레이스홀더 -->
+                        <div class="placeholder">파이차트<br>일러스트</div>
+                        <!-- 실제 이미지: <img src="assets/images/icon-chart.png" alt=""> -->
+                    </div>
+                    <div class="stat-title">평균 절세액</div>
+                    <div class="stat-value">
+                        <div class="number">
+                            <span class="digit">8</span>
+                            <span class="digit">2</span>
+                            <span class="digit">0</span>
+                        </div>
+                        <span class="unit">여 만원</span>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <div class="placeholder">코인<br>일러스트</div>
+                    </div>
+                    <div class="stat-title">평균 지원금</div>
+                    <div class="stat-value">
+                        <div class="number">
+                            <span class="digit">8</span>
+                            <span class="digit">9</span>
+                            <span class="digit">4</span>
+                        </div>
+                        <span class="unit">여 만원</span>
+                    </div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <div class="placeholder">돋보기<br>일러스트</div>
+                    </div>
+                    <div class="stat-title">재계약율</div>
+                    <div class="stat-value">
+                        <div class="number">
+                            <span class="digit">9</span>
+                            <span class="digit">6</span>
+                        </div>
+                        <span class="unit">%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-cta">
+                <a href="#contact" class="btn-primary">상담 예약하기 &gt;</a>
+            </div>
+        </div>
+    </section>
+
     <!-- ========== 서비스 소개 - 송림 동일 (2컬럼 카드) ========== -->
-    <section class="service-intro" id="services">
+    <section class="service-intro" id="allinone">
         <div class="container">
             <div class="service-intro-header">
-                <p>엘림의 다양한 서비스는 <span>One Team</span> 시스템으로<br>관리자의 최상의 만족도를 느끼실 수 있습니다.</p>
+                <p class="subtitle">어디에서도 볼 수 없었던</p>
+                <h2>올인원 서비스</h2>
+                <p>엘림의 다양한 서비스는 <span>One Team</span> 시스템으로<br>관리되어 최상의 만족도를 느끼실 수 있습니다.</p>
             </div>
 
             <div class="service-cards">
@@ -1008,9 +1528,40 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="service-cta">
-                <a href="#contact" class="btn-primary">상담 예약하기 &gt;</a>
+    <!-- ========== 대표님 집중 섹션 - 송림 동일 (파란 배경) ========== -->
+    <section class="focus-section">
+        <div class="container">
+            <h2>대표님들께서는<br><span class="yellow">대표님들이 잘 하시는 일</span>에<br>집중하셔야 성장하실 수 있습니다.</h2>
+            <p class="subtitle">소상공인과 스타트업을 가장 잘 알고 공감하는<br>세무 파트너, 바로 엘림입니다.</p>
+
+            <div class="concern-slider">
+                <div class="concern-card">
+                    <div class="quote">"</div>
+                    <p>사업에 집중하고 싶은데<br>세금 때문에 신경쓰이는 것들까지<br>내가 다 해야 하니 머리 아파.</p>
+                    <p class="highlight">누가 대신 해주면 안 될까?</p>
+                </div>
+                <div class="concern-card">
+                    <div class="quote">"</div>
+                    <p>작년에 세금을 너무 많이 내서 힘들었는데,</p>
+                    <p class="highlight">올해는 최대한 절세하고 싶어.</p>
+                </div>
+                <div class="concern-card">
+                    <div class="quote">"</div>
+                    <p>사업도 바쁜데 세금기간이 또 다가왔네.<br>이것저것 하려니 정신이 없는데</p>
+                    <p class="highlight">꼼꼼하게 잘 챙겨주는 곳 없나?</p>
+                </div>
+                <div class="concern-card">
+                    <div class="quote">"</div>
+                    <p>남들은 이것저것 지원금도 받고,<br>도대체 어디서 어떻게 찾아야 하는 거야?</p>
+                    <p class="highlight">나에게 맞는 지원금<br>누가 대신 좀 찾아주면...</p>
+                </div>
+            </div>
+
+            <div class="focus-cta">
+                <a href="#contact" class="btn-outline">상담 예약하기 &gt;</a>
             </div>
         </div>
     </section>
@@ -1048,7 +1599,7 @@
     <section class="case-section" id="cases">
         <div class="container">
             <div class="case-header">
-                <h2><span class="highlight">절세, 대표님도 충분히</span><br>이루실 수 있습니다!</h2>
+                <h2><span class="highlight-yellow">절세, 대표님도 충분히</span><br>이루실 수 있습니다!</h2>
                 <p>엘림과 파트너를 맺은 사업장의 사례</p>
             </div>
 
@@ -1193,7 +1744,7 @@
                             </li>
                             <li>
                                 <strong>3. 경영 컨설팅, 노무 컨설팅 진행</strong>
-                                <span>- 2023년 직원 인건비와 관련된 문제 해결</span>
+                                <span>- 2023년 직원 인건비와 관련된 문제 해결 문제 해결로 해결 된 금액 약 3,000만 원</span>
                             </li>
                         </ol>
                     </div>
@@ -1238,110 +1789,238 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 추가 요약 -->
+            <div class="case-summary">
+                <div class="case-summary-item">
+                    <div class="label">절세 금액 : 평균</div>
+                    <div class="amount">970<span>만원</span></div>
+                </div>
+                <div class="case-summary-item">
+                    <div class="label">절세 금액 : 평균</div>
+                    <div class="amount">290<span>만원</span></div>
+                </div>
+            </div>
+
+            <div class="case-cta">
+                <a href="#contact" class="btn-primary">상담 예약하기 &gt;</a>
+            </div>
         </div>
     </section>
 
-    <!-- ========== 상담예약 섹션 ========== -->
+    <!-- ========== 상담예약 섹션 - 송림 동일 ========== -->
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h2>상담예약</h2>
-                    <p>궁금한 점이 있으시면 언제든 문의해 주세요.<br>전문 세무사가 친절하게 상담해 드립니다.</p>
+                    <h2>이미 수많은 대표님들께서<br><span class="blue">문의를 주시고 계십니다.</span></h2>
+                    <p class="subtitle">엘림과 파트너를 맺은 사업장의 사례</p>
 
-                    <div class="contact-list">
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div class="contact-text">
-                                <strong>전화 상담</strong>
-                                <span>평일 09:00 - 18:00</span>
-                            </div>
+                    <div class="contact-stats">
+                        <div class="label">엘림 세무상담 누적상담수</div>
+                        <div class="count">15478 <span>건</span></div>
+                    </div>
+
+                    <!-- 실시간 문의 목록 -->
+                    <div class="inquiry-list">
+                        <div class="inquiry-item">
+                            <span class="icon">📁</span>
+                            <span class="text">프리랜서 문의드립니다</span>
+                            <span class="badge">N</span>
+                            <span class="time">1시간전</span>
+                            <span class="name">김진****</span>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">💬</div>
-                            <div class="contact-text">
-                                <strong>카카오톡 상담</strong>
-                                <span>실시간 채팅 상담</span>
-                            </div>
+                        <div class="inquiry-item">
+                            <span class="icon">📁</span>
+                            <span class="text">법인사업자 부가세문의 드립니다</span>
+                            <span class="badge">N</span>
+                            <span class="time">1시간전</span>
+                            <span class="name">정진****</span>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📧</div>
-                            <div class="contact-text">
-                                <strong>이메일 상담</strong>
-                                <span>24시간 접수 가능</span>
-                            </div>
+                        <div class="inquiry-item">
+                            <span class="icon">📁</span>
+                            <span class="text">개인 문의드립니다</span>
+                            <span class="badge">N</span>
+                            <span class="time">2시간전</span>
+                            <span class="name">김용****</span>
+                        </div>
+                        <div class="inquiry-item">
+                            <span class="icon">📁</span>
+                            <span class="text">법인회사 관련 문의</span>
+                            <span class="badge">N</span>
+                            <span class="time">2시간전</span>
+                            <span class="name">법****</span>
+                        </div>
+                        <div class="inquiry-item">
+                            <span class="icon">📁</span>
+                            <span class="text">단체 문의드립니다</span>
+                            <span class="badge">N</span>
+                            <span class="time">2시간전</span>
+                            <span class="name">박상****</span>
+                        </div>
+                        <div class="inquiry-item">
+                            <span class="icon">📁</span>
+                            <span class="text">법인사업자 문의드립니다</span>
+                            <span class="badge">N</span>
+                            <span class="time">2시간전</span>
+                            <span class="name">박서****</span>
+                        </div>
+                        <div class="inquiry-item">
+                            <span class="icon">📁</span>
+                            <span class="text">개인사업자 문의드립니다</span>
+                            <span class="badge">N</span>
+                            <span class="time">2시간전</span>
+                            <span class="name">김민****</span>
+                        </div>
+                        <div class="inquiry-item">
+                            <span class="icon">📁</span>
+                            <span class="text">법인사업자 문의드립니다</span>
+                            <span class="time">3시간전</span>
+                            <span class="name">배동****</span>
+                        </div>
+                        <div class="inquiry-item">
+                            <span class="icon">📁</span>
+                            <span class="text">프리랜서 문의드립니다</span>
+                            <span class="time">3시간전</span>
+                            <span class="name">한바****</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="contact-form">
-                    <h3 class="form-title">무료 상담 신청</h3>
                     <form id="consultForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>이름 *</label>
-                                <input type="text" name="name" required placeholder="이름을 입력하세요">
+                        <!-- 사업자 유형 -->
+                        <div class="form-group">
+                            <label>사업자 유형을 알려주세요. <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="business_type" value="개인사업자" required>
+                                    <span>개인사업자</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="business_type" value="면세사업자">
+                                    <span>면세사업자</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="business_type" value="법인사업자">
+                                    <span>법인사업자</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="business_type" value="기타(개인, 단체)">
+                                    <span>기타(개인, 단체)</span>
+                                </label>
                             </div>
-                            <div class="form-group">
-                                <label>연락처 *</label>
-                                <input type="tel" name="phone" required placeholder="010-0000-0000">
+                        </div>
+
+                        <!-- 성함 및 업체명 -->
+                        <div class="form-group">
+                            <label>성함 및 업체명을 알려주세요. <span class="required">*</span></label>
+                            <input type="text" name="name" required placeholder="">
+                        </div>
+
+                        <!-- 전화번호 -->
+                        <div class="form-group">
+                            <label>전화번호를 입력해주세요. <span class="required">*</span></label>
+                            <input type="tel" name="phone" required placeholder="">
+                        </div>
+
+                        <!-- 사업장 주소 -->
+                        <div class="form-group">
+                            <label>사업장 주소 (지역)을 선택해주세요. <span class="required">*</span></label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="region" value="서울/경기도">
+                                    <span>서울/경기도</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="region" value="부산/경상도">
+                                    <span>부산/경상도</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="region" value="충청도">
+                                    <span>충청도</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="region" value="강원도">
+                                    <span>강원도</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="region" value="전라도">
+                                    <span>전라도</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="region" value="제주도">
+                                    <span>제주도</span>
+                                </label>
                             </div>
                         </div>
+
+                        <!-- 상담 가능 시간대 -->
                         <div class="form-group">
-                            <label>이메일</label>
-                            <input type="email" name="email" placeholder="example@email.com">
+                            <label>상담 가능한 시간대를 입력해주세요. <span class="required">*</span></label>
+                            <input type="text" name="available_time" required placeholder="예시 : 오후 2시 이후">
                         </div>
+
+                        <!-- 상담 내용 -->
                         <div class="form-group">
-                            <label>사업 유형</label>
-                            <select name="type">
-                                <option value="">선택해주세요</option>
-                                <option value="개인사업자">개인사업자</option>
-                                <option value="법인사업자">법인사업자</option>
-                                <option value="프리랜서">프리랜서</option>
-                                <option value="예비창업자">예비창업자</option>
-                            </select>
+                            <label>상담 내용을 간단하게 작성해주세요</label>
+                            <textarea name="message" placeholder=""></textarea>
                         </div>
+
+                        <!-- 개인정보 동의 -->
                         <div class="form-group">
-                            <label>문의 내용</label>
-                            <textarea name="message" placeholder="상담받고 싶은 내용을 적어주세요."></textarea>
+                            <label>개인정보 수집 및 이용 동의 <span class="required">*</span></label>
+                            <div class="privacy-box">
+                                엘림세무회계컨설팅(이하 '회사'라 한다)는 개인정보 보호법 제30조에 따라 정보 주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리지침을 수립, 공개합니다.
+
+                                1. 수집하는 개인정보 항목: 성명, 연락처, 이메일, 사업자 유형, 상담 내용
+                                2. 개인정보 수집 및 이용 목적: 상담 신청 접수 및 회신
+                                3. 개인정보 보유 및 이용 기간: 상담 완료 후 1년
+                            </div>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="privacy_agree" required>
+                                <span>개인정보 수집 및 이용에 동의합니다.</span>
+                            </label>
                         </div>
-                        <button type="submit" class="form-submit">상담 신청하기</button>
-                        <p class="form-notice">* 입력하신 정보는 상담 목적으로만 사용됩니다. <a href="개인정보처리방침.html">개인정보처리방침</a></p>
+
+                        <button type="submit" class="form-submit">무료 상담 신청하기</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- ========== FOOTER - 송림 동일 ========== -->
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-top">
-                <div class="footer-logo">
-                    <div class="footer-logo-icon">
-                        <div class="line line-1"></div>
-                        <div class="line line-2"></div>
-                        <div class="line-3">
-                            <span></span>
-                            <span></span>
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">
+                            <div class="rect-main"></div>
+                            <div class="rect-small"></div>
+                            <div class="rect-medium"></div>
                         </div>
+                        <span class="footer-logo-text">엘림세무회계컨설팅</span>
                     </div>
-                    <span class="footer-logo-text">엘림세무회계컨설팅</span>
+                    <div class="footer-company">
+                        세무 기장 및 세금 신고<br>
+                        사업자등록번호 : 574-02-00524<br>
+                        문의전화 : 평일 09:00 ~ 18:00 / 주말 및 공휴일 휴무<br>
+                        Copyright © 엘림세무회계컨설팅. All Right Reserved
+                    </div>
                 </div>
                 <div class="footer-nav">
-                    <a href="#services">세무 서비스</a>
-                    <a href="#industry">업종별 절세</a>
-                    <a href="#cases">절세 사례</a>
-                    <a href="#contact">상담예약</a>
+                    <a href="#">이용약관</a>
                     <a href="개인정보처리방침.html">개인정보처리방침</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <div class="footer-info">
-                    엘림세무회계컨설팅 | 사업자등록번호: 574-02-00524
-                </div>
                 <div class="footer-copyright">
-                    © 2024 엘림세무회계컨설팅. All rights reserved.
+                    개인정보처리부서 : 엘림개발실 | 담당자 : 대표세무사 | 문의 : contact@elimtax.com
+                </div>
+                <div class="footer-social">
+                    <a href="#" title="블로그">B</a>
                 </div>
             </div>
         </div>
