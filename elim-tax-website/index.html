@@ -198,11 +198,13 @@
 
         .banner-slider-wrapper {
             position: relative;
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
             overflow: hidden;
-            border-radius: 12px;
+            border-radius: 16px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: #f0f4f8;
+            padding: 30px 40px;
         }
 
         .banner-slider {
@@ -213,12 +215,17 @@
         .banner-slide {
             min-width: 100%;
             flex-shrink: 0;
+            display: flex;
+            justify-content: center;
         }
 
         .banner-slide img {
-            width: 100%;
+            width: 80%;
+            max-width: 700px;
             height: auto;
+            object-fit: contain;
             display: block;
+            border-radius: 8px;
         }
 
         .banner-dots {
@@ -1262,6 +1269,48 @@
 
             .hero h1 {
                 font-size: 28px;
+            }
+
+            /* 모바일 배너 - 세로 3개 카드 형태 */
+            .banner-slider-section {
+                padding: 15px 0 0;
+            }
+
+            .banner-slider-wrapper {
+                max-width: 100%;
+                border-radius: 0;
+                padding: 0 16px;
+                margin: 0;
+                box-shadow: none;
+                background: transparent;
+                overflow: visible;
+            }
+
+            .banner-slider {
+                flex-direction: column;
+                gap: 16px;
+                transform: none !important;
+            }
+
+            .banner-slide {
+                min-width: 100%;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            }
+
+            .banner-slide img {
+                width: 100%;
+                max-width: 100%;
+                border-radius: 0;
+            }
+
+            .banner-dots {
+                display: none;
+            }
+
+            .banner-cta {
+                padding: 24px 0 30px;
             }
 
             .stats-grid {
