@@ -990,11 +990,18 @@
         }
 
         .inquiry-list-inner {
-            animation: scrollUp 10s linear infinite;
+            animation: scrollUp 5s linear infinite;
         }
 
-        .inquiry-list:hover .inquiry-list-inner {
+        .inquiry-list:hover .inquiry-list-inner,
+        .inquiry-list:active .inquiry-list-inner {
             animation-play-state: paused;
+        }
+
+        @media (hover: none) {
+            .inquiry-list .inquiry-list-inner {
+                animation-play-state: running !important;
+            }
         }
 
         @keyframes scrollUp {
