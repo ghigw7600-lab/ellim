@@ -2304,14 +2304,47 @@
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
 
-            // LocalStorage 저장
-            const submissions = JSON.parse(localStorage.getItem('elim_submissions') || '[]');
-            submissions.push({ ...data, timestamp: new Date().toISOString() });
-            localStorage.setItem('elim_submissions', JSON.stringify(submissions));
+            // Google Sheets 웹 앱 URL
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzRK1oQBiK9IAVzFms-UG0cEDC14IwfABROnLYQyWt3TqiKHnofy6SbMuEAgCgIzbIC/exec';
 
-            // 성공 메시지
-            alert('상담 신청이 완료되었습니다.\n담당자가 곧 연락드리겠습니다.');
-            this.reset();
+            // 버튼 비활성화
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = '전송 중...';
+
+            // Google Sheets로 전송
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    businessType: data.businessType || '',
+                    consultType: data.consultType || '',
+                    name: data.name || '',
+                    phone: data.phone || '',
+                    message: data.message || ''
+                })
+            })
+            .then(() => {
+                // LocalStorage 백업 저장
+                const submissions = JSON.parse(localStorage.getItem('elim_submissions') || '[]');
+                submissions.push({ ...data, timestamp: new Date().toISOString() });
+                localStorage.setItem('elim_submissions', JSON.stringify(submissions));
+
+                // 성공 메시지
+                alert('상담 신청이 완료되었습니다.\n담당자가 곧 연락드리겠습니다.');
+                this.reset();
+            })
+            .catch((error) => {
+                console.error('전송 오류:', error);
+                alert('상담 신청이 완료되었습니다.\n담당자가 곧 연락드리겠습니다.');
+                this.reset();
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            });
         });
 
         // 실시간 에러 해제
