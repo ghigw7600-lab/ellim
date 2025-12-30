@@ -2313,17 +2313,25 @@
             submitBtn.disabled = true;
             submitBtn.textContent = '전송 중...';
 
+            // 체크박스 값 수집 (지역 - 복수 선택 가능)
+            const regions = [];
+            this.querySelectorAll('input[name="region"]:checked').forEach(cb => {
+                regions.push(cb.value);
+            });
+
             // Google Sheets로 전송
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    businessType: data.businessType || '',
-                    consultType: data.consultType || '',
+                    businessType: data.business_type || '',
                     name: data.name || '',
                     phone: data.phone || '',
-                    message: data.message || ''
+                    region: regions.join(', ') || '',
+                    availableTime: data.available_time || '',
+                    message: data.message || '',
+                    timestamp: new Date().toLocaleString('ko-KR')
                 })
             })
             .then(() => {
