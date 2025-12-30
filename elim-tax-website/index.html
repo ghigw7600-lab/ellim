@@ -2319,19 +2319,26 @@
                 regions.push(cb.value);
             });
 
-            // Google Sheets로 전송
+            // 날짜 포맷 (년월일만)
+            const today = new Date();
+            const dateStr = `${today.getFullYear()}. ${today.getMonth() + 1}. ${today.getDate()}.`;
+
+            // Google Sheets로 전송 (A열~I열 순서)
+            // A:담당자, B:접수일시, C:사업자유형, D:상담유형, E:이름, F:연락처, G:문의내용, H:상태, I:상담내용
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    businessType: data.business_type || '',
-                    name: data.name || '',
-                    phone: data.phone || '',
-                    region: regions.join(', ') || '',
-                    availableTime: data.available_time || '',
-                    message: data.message || '',
-                    timestamp: new Date().toLocaleString('ko-KR')
+                    담당자: '',
+                    접수일시: dateStr,
+                    사업자유형: data.business_type || '',
+                    상담유형: regions.join(', ') || '',
+                    이름: data.name || '',
+                    연락처: data.phone || '',
+                    문의내용: (data.available_time ? `[상담가능시간: ${data.available_time}] ` : '') + (data.message || ''),
+                    상태: '신규',
+                    상담내용: ''
                 })
             })
             .then(() => {
